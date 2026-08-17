@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# Virtual Environment
+.venv/
+venv/
+env/
+
+# SQLite DB (local only — cloud will use its own)
+*.db
+*.sqlite3
+
+# Uploaded files (local only)
+uploads/
+
+# VS Code
+.vscode/
+
+# Environment files
+.env
+*.env
+
+# OS files
+.DS_Store
+Thumbs.db
