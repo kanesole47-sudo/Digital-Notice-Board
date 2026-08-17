@@ -81,6 +81,8 @@ def _render_login_form():
 
 def _render_register_form():
     """Renders the registration form"""
+    role = st.radio('👤 Register As', ['Student', 'Admin'], horizontal=True, key='reg_role_selector')
+    
     with st.form('register_form', clear_on_submit=False):
         email = st.text_input('📧 Email Address', placeholder='student@college.edu', key='reg_email')
         
@@ -90,23 +92,21 @@ def _render_register_form():
         with col2:
             confirm_password = st.text_input('🔒 Confirm Password', type='password', key='reg_confirm')
         
-        role = st.selectbox('👤 Role', ['Student', 'Admin'], key='reg_role')
-        
-        # Admin passkey field (always show but validate only for admin)
-        admin_passkey = ''
+        # Role-specific fields
         if role == 'Admin':
             admin_passkey = st.text_input(
                 '🔐 Admin Secret Passkey',
                 type='password',
                 placeholder='Enter college admin passkey',
-                key='reg_passkey'
+                key='reg_passkey',
+                help='Passkey required to register as Administrator'
             )
-            # Default values for admin
             stream = None
             year = None
             division = None
             seat_number = None
         else:
+            admin_passkey = ''
             # Student-specific fields
             stream = st.selectbox('📚 Stream', STREAMS, key='reg_stream')
             
