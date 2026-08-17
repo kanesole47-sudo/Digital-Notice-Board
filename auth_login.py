@@ -26,11 +26,13 @@ def render_auth_page():
     # Inject CSS
     inject_css()
     
-    # Auth container
-    st.markdown("<div class='auth-container'>", unsafe_allow_html=True)
-    st.markdown("<p class='auth-title'>🏫 College Notice Board</p>", unsafe_allow_html=True)
-    st.markdown("<p class='auth-subtitle'>Sign in to access your personalized notice feed</p>", unsafe_allow_html=True)
-    st.markdown("</div>", unsafe_allow_html=True)
+    # Auth header
+    st.markdown("""
+    <div style='text-align: center; margin-bottom: 24px;'>
+        <h2 style='font-size: 1.8rem; font-weight: 700; color: #202124; margin-bottom: 8px;'>🏫 College Notice Board</h2>
+        <p style='font-size: 0.95rem; color: #5F6368; margin: 0;'>Sign in to access your personalized notice feed</p>
+    </div>
+    """, unsafe_allow_html=True)
     
     tab_login, tab_register = st.tabs(['🔑 Sign In', '📝 Register'])
     
